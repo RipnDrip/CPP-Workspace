@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "new": "cpp",
+        "iostream": "cpp",
+        "fstream": "c",
+        "ostream": "cpp",
+        "string_view": "cpp",
+        "iosfwd": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "istream": "cpp",
+        "itemtype.h": "c",
+        "list": "cpp",
+        "initializer_list": "cpp",
+        "limits": "cpp",
+        "type_traits": "cpp"
+    }
+}

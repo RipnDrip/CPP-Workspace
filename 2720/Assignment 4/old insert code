@@ -1,0 +1,151 @@
+template<class T>
+void BinaryTree<T>::insert(T &item) {
+    NodeType<T> *node = new NodeType<T>;
+    node->key = item;
+    node->left = nullptr;
+    node->right = nullptr;
+
+    
+    if (root == nullptr) {
+        root = node;
+        return;
+    }
+    else if (node->key < root->key){
+        if(item == root->left->key) {
+            cout << " Item already in tree" << endl;
+            return;
+        }
+        else {
+        root->left = node;
+        insert(root->left->key);
+        }
+    }
+    else {
+    NodeType<T> *curr = root;
+    while (curr && (curr->key >= root->key)){
+        if (curr->key == item) {
+            cout << " Item already in list" << endl;
+        }
+        curr = curr->right;
+    }
+    
+        if (curr == nullptr) {
+          curr = node;  
+        }
+    }
+}
+
+
+
+template<class T>
+void BinaryTree<T>::inOrder() const {
+    printInOrder(root);
+}
+
+template<class T>
+void BinaryTree<T>::preOrder() const {
+    printPreOrder(root);
+}
+
+template<class T>
+void BinaryTree<T>::postOrder() const {
+    printPostOrder(root);
+}
+
+template<class T>
+void BinaryTree<T>::printInOrder(NodeType<T>* tree) 
+{
+    if (tree != NULL) {
+        printInOrder(tree->left);
+        cout<<(tree->key)<<endl;
+        printInOrder(tree->right);
+    }
+}
+
+template<class T>
+void BinaryTree<T>::printPreOrder(NodeType<T>* tree) {
+     if (tree != NULL) {
+        cout<<(tree->key)<<endl;
+        printPreOrder(tree->left);
+        printPreOrder(tree->right);
+    }
+}
+
+template<class T>
+void BinaryTree<T>::printPostOrder(NodeType<T>* tree) 
+{
+    if (tree != NULL) {
+        printPostOrder(tree->left);
+        printPostOrder(tree->right);
+        cout<<(tree->key)<<endl;
+    }
+}
+template<class T>
+void BinaryTree<T>::inOrder() const {
+    NodeType<T>* curr = new NodeType<T>();
+    
+    if(root == NULL){
+        cout << "Empty." << endl;
+        return;
+    }
+    else {
+        curr = root;
+    } 
+    
+    if(curr->left) {
+        curr = curr->left;
+    }
+    cout<< curr->key <<" ";
+
+    if(curr->right){
+        curr = curr->right;
+    }  
+     
+}
+
+template<class T>
+void BinaryTree<T>::preOrder() const {
+
+    NodeType<T>* curr = new NodeType<T>();
+    
+    if(root == NULL){
+        cout << "Empty." << endl;
+        return;
+    }
+    else {
+        curr = root;
+    }
+
+
+    cout<< curr->key <<" " << endl;
+
+    if(curr->left) {
+        curr = curr->left;
+    }
+
+    if(curr->right){
+        curr = curr->right;
+    }     
+}
+
+template<class T>
+void BinaryTree<T>::postOrder() const {
+    NodeType<T>* curr = new NodeType<T>();
+    
+    if(root == NULL){
+        cout << "Empty." << endl;
+        return;
+    }
+    else {
+        curr = root;
+    }
+     
+    if(curr->left) {
+        curr = curr->left;
+    }
+
+    if(curr->right){
+        curr = curr->right;
+    }
+    cout<< curr->key <<" "; 
+}

@@ -1,0 +1,1 @@
+  cout << numberOfOnes(input) << endl;
